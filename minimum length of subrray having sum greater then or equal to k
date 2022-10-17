@@ -1,0 +1,34 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+int main(){
+int t;
+cin>>t;
+while(t--){
+int n,k;
+cin>>n>>k;
+int arr[n];
+for(int i=0;i<n;i++){
+cin>>arr[i];
+}
+int len=INT_MAX;
+int sum=0;
+queue<int>st;
+for(int i=0;i<n;i++){
+sum+=arr[i];
+st.push(arr[i]);
+if(sum>=k){
+while(sum>=k){
+int temp=st.size();
+
+if(len>temp){
+len=temp;
+}
+sum=sum-st.front();
+st.pop();
+}
+}
+}
+cout<<len<<endl;
+}
+}
